@@ -1,56 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { PostsList } from './features/posts/PostsList';
+import { Header } from './app/Header';
+import { AlbumsList } from './features/albums/AlbumsList';
+import { SinglePostView } from './features/posts/SinglePostView';
+import { UsersList } from './features/users/UsersList';
+import { Container } from 'react-bootstrap';
+import { SingleUserView } from './features/users/SingleUserView';
+import { SingleAlbumView } from './features/albums/SingleAlbumView';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Router>
+        <Header />
+        <Container>
+          <Routes>
+            <Route exact path="/posts" element={<PostsList />} />
+            <Route exact path="/posts/:postId" element={<SinglePostView />} />
+            <Route exact path="/albums" element={<AlbumsList />} />
+            <Route exact path="/albums/:albumId" element={<SingleAlbumView />} />
+            <Route exact path="/users" element={<UsersList />} />
+            <Route exact path="/users/:userId" element={<SingleUserView />} />
+          </Routes>
+        </Container>
+      </Router>
     </div>
   );
 }
