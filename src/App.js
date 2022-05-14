@@ -13,7 +13,7 @@ import { Home } from './app/Home';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router basename='social'>
         <Header />
         <Container className='pt-5'>
           <Routes>
