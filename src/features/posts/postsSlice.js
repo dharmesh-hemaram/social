@@ -44,7 +44,6 @@ const postsSlice = createSlice({
     }).addCase(fetchPostById.fulfilled, (state, action) => {
       postAdapter.addOne(state, action.payload)
     }).addCase(fetchPostsByUserId.fulfilled, (state, action) => {
-      console.log(action)
       postAdapter.addMany(state, action.payload)
     })
   }

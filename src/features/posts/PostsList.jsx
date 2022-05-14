@@ -6,7 +6,7 @@ import { Error } from "../../app/Error";
 import { fetchPosts, selectAllPosts, STATUS } from "./postsSlice";
 
 export const PostExcrete = (post) => (
-  <Col key={post.id} xs={1} md={4} className="mb-4">
+  <Col key={post.id} xs={1} md={4} className="mb-4 d-flex">
     <Card>
       <Card.Body>
         <Card.Title>{post.title}</Card.Title>

@@ -3,7 +3,7 @@ import { Alert, Card, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Error } from "../../app/Error";
-import { PhotosByAlbum } from "../photos/PhotosByAlbum";
+import { CarouselByAlbum } from "../photos/CarouselByAlbum";
 import { STATUS } from "../posts/postsSlice";
 import { Author } from "../users/Author";
 import { fetchAlbumById, selectAlbumById } from "./albumsSlice";
@@ -32,8 +32,8 @@ const SingleAlbumView = () => {
   }
 
   return (
-    <Card style={{ width: "18rem" }}>
-      <PhotosByAlbum albumId={album.id} />
+    <Card style={{ width: "600px" }}>
+      <CarouselByAlbum albumId={album.id} />
       <Card.Body>
         <Card.Title>{album.title}</Card.Title>
         <Author userId={album.userId} />

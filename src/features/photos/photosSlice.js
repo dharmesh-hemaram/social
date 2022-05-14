@@ -1,12 +1,8 @@
 import { createAsyncThunk, createEntityAdapter, createSelector, createSlice } from "@reduxjs/toolkit";
 import api from "../../api";
-import { STATUS } from "../posts/postsSlice";
 
 const photosAdapter = createEntityAdapter()
-const initialState = photosAdapter.getInitialState({
-  state: STATUS.IDLE,
-  error: null
-})
+const initialState = photosAdapter.getInitialState({})
 
 export const fetchPhotosByAlbum = createAsyncThunk('fetch/photosByAlbum', async (albumId) => {
   const response = await api.get(`/photos?albumId=${albumId}`)
@@ -19,8 +15,6 @@ const photosSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder.addCase(fetchPhotosByAlbum.fulfilled, (state, action) => {
-      state.status = STATUS.COMPLETED
-      console.log(action)
       photosAdapter.addMany(state, action.payload)
     })
   }

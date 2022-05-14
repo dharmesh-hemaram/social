@@ -9,10 +9,9 @@ const PostsByUser = ({ userId }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!posts || posts.length === 0) {
-      dispatch(fetchPostsByUserId(userId));
-    }
-  }, [userId, dispatch, posts]);
+    dispatch(fetchPostsByUserId(userId));
+  }, [userId, dispatch]);
+
   if (!posts || posts.length === 0) {
     return <Alert variant="info">Nothing posted by this user</Alert>;
   }

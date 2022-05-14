@@ -5,20 +5,22 @@ import { Link } from "react-router-dom";
 import { PhotoByAlbum } from "../photos/PhotoByAlbum";
 import { STATUS } from "../posts/postsSlice";
 import { fetchAlbums, selectAlbumById, selectAlbumIds } from "./albumsSlice";
+import { Author } from "../users/Author";
 
 export const AlbumExcerpt = ({ albumId }) => {
   const album = useSelector((state) => selectAlbumById(state, albumId));
 
   return (
-    <Col key={album.id}>
-      <Link to={`/albums/${album.id}`}>
-        <Card>
-          <PhotoByAlbum albumId={album.id} />
-          <Card.Body>
+    <Col key={album.id} xs={1} md={2} className="mb-4 d-flex">
+      <Card>
+        <PhotoByAlbum albumId={album.id} />
+        <Card.Body>
+          <Link to={`/albums/${album.id}`}>
             <Card.Title>{album.title}</Card.Title>
-          </Card.Body>
-        </Card>
-      </Link>
+          </Link>
+          <Author userId={album.userId} />
+        </Card.Body>
+      </Card>
     </Col>
   );
 };

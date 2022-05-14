@@ -37,14 +37,8 @@ const albumsSlice = createSlice({
     }).addCase(fetchAlbums.fulfilled, (state, action) => {
       state.status = STATUS.COMPLETED
       albumAdapter.setAll(state, action.payload)
-    }).addCase(fetchAlbumById.pending, state => {
-      state.status = STATUS.LOADING
     }).addCase(fetchAlbumById.fulfilled, (state, action) => {
-      state.status = STATUS.COMPLETED
       albumAdapter.addOne(state, action.payload)
-    }).addCase(fetchAlbumById.rejected, (state, action) => {
-      state.status = STATUS.ERROR
-      state.error = action.error
     }).addCase(fetchAlbumsByUserId.fulfilled, (state, action) => {
       albumAdapter.addMany(state, action.payload)
     })
