@@ -11,15 +11,18 @@ export const AlbumExcerpt = ({ albumId }) => {
   const album = useSelector((state) => selectAlbumById(state, albumId));
 
   return (
-    <Col key={album.id} xs={1} md={2} className="mb-4 d-flex">
-      <Card>
-        <PhotoByAlbum albumId={album.id} />
-        <Card.Body>
-          <Link to={`/albums/${album.id}`}>
-            <Card.Title>{album.title}</Card.Title>
-          </Link>
-          <Author userId={album.userId} />
-        </Card.Body>
+    <Col key={album.id} xs={1} md={3} className="mb-4 d-flex">
+      <Card className="w-100">
+        <Link
+          to={`/albums/${album.id}`}
+          className="text-decoration-none text-secondary"
+        >
+          <PhotoByAlbum albumId={album.id} />
+          <Card.Body>
+            <Card.Title className="text-capitalize">{album.title}</Card.Title>
+            <Author userId={album.userId} />
+          </Card.Body>
+        </Link>
       </Card>
     </Col>
   );

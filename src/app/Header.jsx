@@ -12,14 +12,8 @@ const Header = () => {
             <Link to="/" className="nav-link">
               Home
             </Link>
-            <Link to="/posts" className="nav-link">
-              Posts
-            </Link>
             <Link to="/albums" className="nav-link">
               Albums
-            </Link>
-            <Link to="/users" className="nav-link">
-              Users
             </Link>
           </Nav>
         </Navbar.Collapse>

@@ -6,10 +6,10 @@ import { Error } from "../../app/Error";
 import { fetchPosts, selectAllPosts, STATUS } from "./postsSlice";
 
 export const PostExcrete = (post) => (
-  <Col key={post.id} xs={1} md={4} className="mb-4 d-flex">
+  <Col key={post.id} xs={1} md={6} className="mb-4 d-flex">
     <Card>
       <Card.Body>
-        <Card.Title>{post.title}</Card.Title>
+        <Card.Title className="text-capitalize">{post.title}</Card.Title>
         <Card.Text>{post.body}</Card.Text>
         <Link to={`/posts/${post.id}`}>View Post</Link>
       </Card.Body>
@@ -37,12 +37,7 @@ const PostsList = () => {
     return <Error error={error} />;
   }
 
-  return (
-    <>
-      <h1>Posts</h1>
-      {content}
-    </>
-  );
+  return <>{content}</>;
 };
 
 export { PostsList };

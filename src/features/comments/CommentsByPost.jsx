@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Badge, Card, ListGroup } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { STATUS } from "../posts/postsSlice";
 import { fetchCommentsByPost, getCommentsByPost } from "./commentsSlice";
@@ -18,21 +18,21 @@ const CommentsByPost = ({ postId }) => {
     return;
   }
   return (
-    <Card.Footer>
+    <>
       <ListGroup>
         {comments.map((comment) => (
           <ListGroup.Item key={comment.id}>
             <div className="ms-2 me-auto">
-              <div className="fw-bold">{comment.email}</div>
+              <div className="fw-bold">{comment.name}</div>
               {comment.body}
             </div>
-            <Badge bg="primary" pill>
-              {comment.name}
-            </Badge>
+            <a href={`mailti:${comment.email}`} className="ms-2">
+              {comment.email}
+            </a>
           </ListGroup.Item>
         ))}
       </ListGroup>
-    </Card.Footer>
+    </>
   );
 };
 

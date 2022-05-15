@@ -8,7 +8,6 @@ import { UsersList } from './features/users/UsersList';
 import { Container } from 'react-bootstrap';
 import { SingleUserView } from './features/users/SingleUserView';
 import { SingleAlbumView } from './features/albums/SingleAlbumView';
-import { Home } from './app/Home';
 
 function App() {
   return (
@@ -17,8 +16,7 @@ function App() {
         <Header />
         <Container className='pt-5'>
           <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/posts" element={<PostsList />} />
+            <Route exact path="/" element={<PostsList />} />
             <Route exact path="/posts/:postId" element={<SinglePostView />} />
             <Route exact path="/albums" element={<AlbumsList />} />
             <Route exact path="/albums/:albumId" element={<SingleAlbumView />} />

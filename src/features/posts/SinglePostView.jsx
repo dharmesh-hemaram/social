@@ -21,14 +21,16 @@ const SinglePostView = () => {
   }
 
   return (
-    <Card>
-      <Card.Body>
-        <Card.Title>{post.title}</Card.Title>
-        <Card.Text>{post.body}</Card.Text>
-        {post.userId && <Author userId={post.userId} />}
-      </Card.Body>
+    <>
+      <Card className="mb-2">
+        <Card.Body>
+          <Card.Title className="text-capitalize">{post.title}</Card.Title>
+          <Card.Text>{post.body}</Card.Text>
+          {post.userId && <Author userId={post.userId} />}
+        </Card.Body>
+      </Card>
       <CommentsByPost postId={post.id} />
-    </Card>
+    </>
   );
 };
 
